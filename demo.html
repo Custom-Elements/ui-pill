@@ -1,0 +1,63 @@
+<!doctype html>
+
+<html>
+  <head>
+    <title>ui-pill</title>
+    <script src="http://localhost:35729/livereload.js"></script>
+    <script src="node_modules/polymer/platform.js"></script>
+    <link rel="stylesheet" href="node_modules/ui-fonts/font-awesome.less">
+    <link rel="import" href="node_modules/polymer/polymer.html">
+    <link rel="import" href="build/ui-pill-list.html">
+    <style>
+      body {
+        font-family: "Helvetica Neue", "Helvetica", Arial;
+      }
+    </style>
+  </head>
+  <body unresolved>
+    <div id="holder">
+
+      <ui-pill value="1">
+        Doge Food
+      </ui-pill>
+      <br>
+
+      <button id="add-value">Add Pill</button>
+      <ui-pill-list>
+        <template repeat="{{items}}">
+          <ui-pill value="{{value}}">
+            {{label}}
+          </ui-pill>
+        </template>
+      </ui-pill-list>
+    </div>
+    <script>
+      
+      document.addEventListener('polymer-ready', function() {
+        document.addEventListener("pill-clicked",function(e){
+          console.log("model:", e.detail.target.templateInstance.model)
+          console.log("element:", e.detail.target)
+        });
+        document.querySelector('ui-pill-list').items = [
+            {
+              label: "doge",
+              value: 1
+            },
+            {
+              label: "try",
+              value: 2
+            }
+          ];
+
+          console.log(document.querySelector('ui-pill-list').items)
+
+          document.querySelector("#add-value").addEventListener('click', function(e){
+            document.querySelector('ui-pill-list').add({label:'Much',value:-222})
+            document.querySelector('ui-pill-list').add({label:'Much sutff',value:-222})
+          })
+          
+
+      })
+    </script>
+  </body>
+</html>
