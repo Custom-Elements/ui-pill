@@ -16,15 +16,6 @@
         e.stopPropagation()
         target = src.templateInstance.model
         @fire "pill-removed", {target}
-
-##Polymer Lifecycle
-
-      created: ->
-
-      ready: ->
-
-      attached: ->
-
-      domReady: ->
-
-      detached: ->
+      
+      onClick: (e, _, src) ->
+        @fire "pill-clicked", e
