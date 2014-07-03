@@ -1,11 +1,7 @@
 #ui-pill-list
-*TODO* tell me all about your element.
-
+A collection of ui-pill items
 
     Polymer 'ui-pill-list',
-
-##Events
-*TODO* describe the custom event `name` and `detail` that are fired.
 
 ##Attributes and Change Handlers
 
@@ -15,7 +11,6 @@
 ##Methods
 
       setValue: (value) ->
-        console.log value
         if @useDefault
           @items = value
         else
@@ -30,16 +25,29 @@
           values.push child.templateInstance.model
         values
 
+Add a new item to the collection
+      
       add: (item) -> 
         @items = @items.concat(item)
 
 ##Event Handlers
 
+      pillRemoved: (e) ->
+          e.stopPropagation()
+
+          #lightdom children
+          for child in @querySelectorAll("ui-pill")
+            @removeChild child if child == e.detail.target
+
+          #shadowdom children
+          for child in @shadowRoot.querySelectorAll("ui-pill")
+            @shadowRoot.removeChild child if child == e.detail.target
+
 
 ##Polymer Lifecycle
 
       created: ->
-        # does the lightdom have a template, if so it's a custom renderer
+        # does the lightdom have a template, if so it's a custom template
         @template = @querySelector("template")
         @useDefault = @template == null
 
@@ -50,13 +58,4 @@
 
       attached: ->
         
-        @addEventListener "pill-removed", (e) ->
-          e.stopPropagation()
-          
-          #lightdom children
-          for child in @querySelectorAll("ui-pill")
-            @removeChild child if child == e.detail.target
-
-          #shadowdom children
-          for child in @shadowRoot.querySelectorAll("ui-pill")
-            @shadowRoot.removeChild child if child == e.detail.target
+        @addEventListener "pill-removed", @pillRemoved

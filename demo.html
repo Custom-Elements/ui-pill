@@ -12,8 +12,15 @@
       body {
         font-family: "Helvetica Neue", "Helvetica", Arial;
       }
-      h1{font-size: .9em;margin-top: 10px;}
-      i{display:inline-block;margin: 3px 0;font-size: .8em;}
+      h1 {
+        font-size: .9em;
+        margin-top: 10px;
+      }
+      i {
+        display:inline-block;
+        margin: 3px 0;
+        font-size: .8em;
+      }
       button{
         background-color: #ef272d;
         border: 1px solid black;
@@ -41,13 +48,13 @@
       </div>
 
       <div>
-        <h1>Pill List - inline pills</h1>
+        <h1>Pill List - literal pills</h1>
         <div>
-          <button id="get-value-inline">Get Value</button>
-          <span id="inline-value"></span>
+          <button id="get-value-literal">Get Value</button>
+          <span id="literal-value"></span>
         </div>        
         <i>if you dont set the value here then it returns the innerText (there is no model)</i>
-        <ui-pill-list id="inline">
+        <ui-pill-list id="literal">
           <ui-pill value="1">Doge Food</ui-pill>        
           <ui-pill>Cat Food</ui-pill>
           <ui-pill value="3">Fish Food</ui-pill>              
@@ -55,7 +62,7 @@
       </div>
 
       <div>
-        <h1>Pill List - inline & iterated pills</h1>
+        <h1>Pill List - literal & js assigned pills</h1>
         <div>
           <button id="get-value-combo">Get Value</button>
           <span id="combo-value"></span>
@@ -106,7 +113,7 @@
       document.addEventListener('polymer-ready', function() {
 
         var standalone = document.querySelector('#standalone')
-        var inline = document.querySelector('#inline')
+        var literal = document.querySelector('#literal')
         var combo = document.querySelector('#combo')
         var defaultPill = document.querySelector('#default')
         var customPill = document.querySelector('#custom')
@@ -162,8 +169,8 @@
           document.querySelector("#standalone-value").innerHTML = standalone.value
         })
 
-        document.querySelector("#get-value-inline").addEventListener('click', function(e){
-          document.querySelector("#inline-value").innerHTML = inline.value
+        document.querySelector("#get-value-literal").addEventListener('click', function(e){
+          document.querySelector("#literal-value").innerHTML = literal.value
         })
 
         document.querySelector("#get-value-combo").addEventListener('click', function(e){
