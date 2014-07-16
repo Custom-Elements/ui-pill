@@ -2,11 +2,11 @@
 <template>
   <link rel="stylesheet" type="text/css" href="./ui-pill.less">
 
-  <div class="pill">
+  <div id="pill" class="pill flip compress" on-transitionend="{{onTransition}}" horizontal layout center>
   	<content></content>
-  	<span on-click="{{onRemove}}"><i class="fa fa-times"></i></span>
+  	<span id="closer" on-click="{{onRemove}}"></span>
   </div>
-  
+
 </template>
 <script src="./ui-pill.litcoffee"></script>
 </polymer-element>

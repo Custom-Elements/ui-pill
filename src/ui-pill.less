@@ -1,25 +1,38 @@
 @import "../node_modules/ui-styles/variables";
 :host {
-	display: inline-flex;
+	display: inline-block;
 	box-sizing:border-box;
+	.cannot-select-text;
+  cursor: pointer;
+	#closer {
+		padding-left: 0.125em;
+		&:before {
+			content: '\2715';
+		}
+	}
 	.pill {
-		cursor: pointer;
+	  box-sizing: border-box;
 		padding-top: 0.125em;
-		padding-right: 0.75em;
+		padding-right: 0.25em;
 		padding-bottom: 0.125em;
-		padding-left: 0.75em;
+		padding-left: 0.25em;
 		margin-right: 0.33em;
-		margin-top: 0.33em;
 		border-radius: 2px;
 		vertical-align: middle;
-		-webkit-background-clip: padding-box;
-		background-clip: padding-box;
-		background: #5b5b5b;
-		font-style: normal;
-		font-weight: 300;
-		background: white;
-		box-shadow: inset 0 0 0 1px #454545;
-		color: #454545;
+		.flat;
+		.border;
+		.transition(@transition);
+		.transform(rotateX(0deg) scaleX(1));
+	}
+	.flip {
+		.transform(rotateX(89deg) scaleX(1));
+	}
+	.compress {
+		width: 0;
+		padding: 0;
+		margin: 0;
+		border: 0;
+		.transform(rotateX(90deg) scaleX(1));
 	}
 
 }
