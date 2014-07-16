@@ -20,7 +20,6 @@
     </style>
   </head>
   <body unresolved container>
-    <div id="holder">
 
       <div>
         <p>Pill - standalone (no parent)</p>
@@ -40,8 +39,6 @@
           </ui-pill>
         </template>
       </div>
-
-    </div>
     <script>
 
       document.addEventListener('polymer-ready', function() {
@@ -60,10 +57,6 @@
             title: "Mega-horse"
           }
         ]};
-        // document handlers to show pill clicks/removes
-        document.addEventListener("click",function(e){
-          console.log(e)
-        });
         document.addEventListener("remove",function(e){
           var idx = document.querySelector('#items').model.items.indexOf(e.target.templateInstance.model);
           document.querySelector('#items').model.items.splice(idx, 1);
