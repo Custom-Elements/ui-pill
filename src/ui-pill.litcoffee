@@ -13,37 +13,37 @@ Fired when you click on the little `X`, this let's any parent deal.
 ##Attributes and Change Handlers
 
 ##Methods
-###show
 
-      show: ->
-        @hiding = false
-        @$.pill.classList.remove 'compress'
+###remove
 
-###hide
-
-      hide: ->
-        @hiding = true
-        @$.pill.classList.add 'flip'
+      remove: (evt)->
+        evt?.stopPropagation()
+        width = @$.pill.offsetWidth
+        height = @$.pill.offsetHeight
+        anim = @$.pill.animate [
+          {width: width, height: height, transform: 'rotateX(0deg)', offset: 0}
+          {width: width, height: height, transform: 'rotateX(90deg)', offset: 0.5}
+          {width: '0', height: height, transform: 'rotateX(90deg)', offset: 1}
+        ], duration: 300
+        anim.onfinish = =>
+          @$.pill.classList.add 'hide'
+          @fire 'remove'
 
 ##Event Handlers
 
-      onTransition: ->
-        if @hiding
-          if not @$.pill.classList.contains 'compress'
-            @$.pill.classList.add 'compress'
-          else
-            @fire 'remove'
-        else
-          @$.pill.classList.remove 'flip'
-
-      onRemove: (e, _, src) ->
-        e.stopPropagation()
-        @hide()
-
+      pointerdown: ->
+        @$.pill.classList.add 'pressed'
+      pointerup: ->
+        @$.pill.classList.remove 'pressed'
 
 ##Polymer Lifecycle
 
       attached: ->
-        @async =>
-          @show()
-        , null, 200
+        width = @$.pill.offsetWidth
+        height = @$.pill.offsetHeight
+        console.log width, height
+        anim = @$.pill.animate [
+          {width: '0', height: height, transform: 'rotateX(90deg)', offset: 0}
+          {width: width, height: height, transform: 'rotateX(90deg)', offset: 0.5}
+          {width: width, height: height, transform: 'rotateX(0deg)', offset: 1}
+        ], duration: 300

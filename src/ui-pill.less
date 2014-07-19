@@ -2,6 +2,7 @@
 :host {
 	display: inline-block;
 	box-sizing:border-box;
+	overflow: hidden;
 	.cannot-select-text;
   cursor: pointer;
 	#closer {
@@ -11,6 +12,8 @@
 		}
 	}
 	.pill {
+		overflow: hidden;
+		position: relative;
 	  box-sizing: border-box;
 		padding-top: 0.125em;
 		padding-right: 0.25em;
@@ -22,17 +25,8 @@
 		.flat;
 		.border;
 		.transition(@transition);
-		.transform(rotateX(0deg) scaleX(1));
+    &.pressed {
+      .transform(scale(0.95, 0.95));
+    }
 	}
-	.flip {
-		.transform(rotateX(89deg) scaleX(1));
-	}
-	.compress {
-		width: 0;
-		padding: 0;
-		margin: 0;
-		border: 0;
-		.transform(rotateX(90deg) scaleX(1));
-	}
-
 }

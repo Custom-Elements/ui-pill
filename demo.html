@@ -35,10 +35,12 @@
         <p>Data Bound pills</p>
         <template id="items" repeat="{{items}}">
           <ui-pill value="{{id}}">
-            {{title}}
+            &#9822;{{title}}
           </ui-pill>
         </template>
       </div>
+      <hr>
+      <a id="add">Add a Tag</a>
     <script>
 
       document.addEventListener('polymer-ready', function() {
@@ -62,6 +64,11 @@
           document.querySelector('#items').model.items.splice(idx, 1);
           console.log(document.querySelector('#items').model.items);
         });
+        document.querySelector('#add').addEventListener('click', function(){
+          document.querySelector('#items').model.items.unshift(
+            {id: Date.now(), title: 'Super Horse'}
+          )
+        })
       })
     </script>
   </body>

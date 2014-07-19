@@ -1,10 +1,14 @@
-<polymer-element name="ui-pill" attributes="value" on-click="{{onClick}}">
+<polymer-element name="ui-pill" attributes="value">
 <template>
   <link rel="stylesheet" type="text/css" href="./ui-pill.less">
 
-  <div id="pill" class="pill flip compress" on-transitionend="{{onTransition}}" horizontal layout center>
-  	<content></content>
-  	<span id="closer" on-click="{{onRemove}}"></span>
+  <div id="pill" class="pill" horizontal layout center>
+    <span id="content"
+      on-mousedown="{{pointerdown}}"
+      on-mouseup="{{pointerup}}">
+      <content></content>
+    </span>
+  	<span id="closer" on-click="{{remove}}"></span>
   </div>
 
 </template>
