@@ -41,7 +41,6 @@ Fired when you click on the little `X`, this let's any parent deal.
       attached: ->
         width = @$.pill.offsetWidth
         height = @$.pill.offsetHeight
-        console.log width, height
         anim = @$.pill.animate [
           {width: '0', height: height, transform: 'rotateX(90deg)', offset: 0}
           {width: width, height: height, transform: 'rotateX(90deg)', offset: 0.5}
