@@ -34,7 +34,7 @@
       <div>
         <p>Data Bound pills</p>
         <template id="items" repeat="{{items}}">
-          <ui-pill value="{{id}}">
+          <ui-pill red?="{{special}}" value="{{id}}">
             &#9822;{{title}}
           </ui-pill>
         </template>
@@ -56,7 +56,8 @@
           },
           {
             id: 3,
-            title: "Mega-horse"
+            title: "Mega-horse",
+            special: true
           }
         ]};
         document.addEventListener("remove",function(e){
