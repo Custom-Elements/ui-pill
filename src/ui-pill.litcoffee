@@ -27,7 +27,7 @@ Fired when you click on the little `X`, this let's any parent deal.
         ], duration: 300
         anim.onfinish = =>
           @$.pill.classList.add 'hide'
-          @fire 'remove'
+          @fire 'remove', @templateInstance.model
 
 ##Event Handlers
 
