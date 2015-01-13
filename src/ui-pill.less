@@ -5,24 +5,33 @@
 	display: inline-block;
 	box-sizing:border-box;
 	overflow: hidden;
-	.cannot-select-text;
   cursor: pointer;
-	#closer {
-		padding-left: 0.125em;
-		&:before {
+  line-height: .75em;
+
+	.cannot-select-text;
+
+  #closer {
+		margin-left: .5em;
+    font-size: .75em;
+    font-weight: bold;
+
+    &:before {
 			content: '\2715';
 		}
 	}
+
 	.pill {
 		overflow: hidden;
 		position: relative;
 	  box-sizing: border-box;
-		padding-top: 0.125em;
-		padding-right: 0.125em;
-		padding-bottom: 0.125em;
-		padding-left: 0.125em;
+		padding-top: 0.25em;
+    padding-bottom: 0.25em;
+    padding-left: 0.45em;
+    padding-right: 0.45em;
 		border-radius: 2px;
 		vertical-align: middle;
+    white-space: nowrap;
+
 		.flat;
 		.border;
 		.transition(@transition);

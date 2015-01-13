@@ -27,7 +27,7 @@
           <span id="standalone-value"></span>
         </div>
         <ui-pill id="standalone" value="1">
-          <icon paw></icon>Doge Food
+          <icon paw></icon> Doge Food
         </ui-pill>
       </div>
 
@@ -35,7 +35,7 @@
         <p>Data Bound pills</p>
         <template id="items" repeat="{{items}}">
           <ui-pill red?="{{special}}" value="{{id}}">
-            &#9822;{{title}}
+            <icon paw></icon> &nbsp;{{title}}
           </ui-pill>
         </template>
       </div>
@@ -47,16 +47,16 @@
         var customPill = document.querySelector('#items').model = {items: [
           {
             id: 1,
-            title: "Horse",
+            title: "Doge",
 
           },
           {
             id: 2,
-            title: "Mini-horse"
+            title: "Doge"
           },
           {
             id: 3,
-            title: "Mega-horse",
+            title: "Dogedogedogedogedogedogedogedogedogedogedogedogedoge",
             special: true
           }
         ]};
@@ -67,7 +67,7 @@
         });
         document.querySelector('#add').addEventListener('click', function(){
           document.querySelector('#items').model.items.unshift(
-            {id: Date.now(), title: 'Super Horse'}
+            {id: Date.now(), title: 'Super Doge'}
           )
         })
       })
