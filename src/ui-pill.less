@@ -6,12 +6,11 @@
 	box-sizing:border-box;
 	overflow: hidden;
   cursor: pointer;
-  line-height: .75em;
 
 	.cannot-select-text;
 
   #closer {
-		margin-left: .5em;
+		padding-left: @pad;
     font-size: .75em;
     font-weight: bold;
 
@@ -24,10 +23,10 @@
 		overflow: hidden;
 		position: relative;
 	  box-sizing: border-box;
-		padding-top: 0.25em;
-    padding-bottom: 0.25em;
-    padding-left: 0.45em;
-    padding-right: 0.45em;
+		padding-top: @micropad;
+    padding-bottom: @micropad;
+    padding-left: @pad;
+    padding-right: @pad;
 		border-radius: 2px;
 		vertical-align: middle;
     white-space: nowrap;
