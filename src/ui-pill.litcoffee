@@ -20,14 +20,8 @@ Fired when you click on the little `X`, this let's any parent deal.
         evt?.stopPropagation()
         width = @$.pill.offsetWidth
         height = @$.pill.offsetHeight
-        anim = @$.pill.animate [
-          {width: width, height: height, transform: 'rotateX(0deg)', offset: 0}
-          {width: width, height: height, transform: 'rotateX(90deg)', offset: 0.5}
-          {width: '0', height: height, transform: 'rotateX(90deg)', offset: 1}
-        ], duration: 300
-        anim.onfinish = =>
-          @$.pill.classList.add 'hide'
-          @fire 'remove', @templateInstance.model
+        @$.pill.classList.add 'hide'
+        @fire 'remove', @templateInstance.model
 
 ##Event Handlers
 
